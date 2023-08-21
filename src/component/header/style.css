@@ -1,0 +1,155 @@
+/* Header */
+
+.menu , .close {
+    display: none;
+}
+
+.header {
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: absolute;
+    width: 100%;
+    padding: 0 0 0 30px;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.line {
+    position: relative;
+    flex-grow: 1;
+}
+
+.line::before {
+    content: '';
+    position: absolute;
+    height: 1px;
+    width: 100%;
+    top: 0;
+    right: -40px;
+    background: #8080804a;
+    border-radius: 0.5rem;
+    z-index: 1000;
+}
+
+.list-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    width: 55%;
+    height: 100%;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(18px);
+}
+
+.items a {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: .3s linear;
+    position: relative;
+    text-decoration: none;
+}
+
+.items a span:nth-child(1){
+    color: #fff;
+    font-weight: bold;
+}
+
+.items a span:nth-child(2){
+    color: #b7b7b7;
+}
+
+.items a.active::after {
+    content: '';
+    position: absolute;
+    height: 2px;
+    background: #fff;
+    width: 100%;
+    border-radius: 0.5rem;
+    bottom: -28px;
+    left: 0;
+}
+
+
+@media (max-width: 992px) {
+    .line {
+        display: none;
+    }
+
+    .items a span:nth-child(1) {
+        display: none;
+    }
+
+    .items a span:nth-child(2) {
+        color: #fff;
+        font-weight: bold;
+    }
+
+    .list-item {
+        width: 65%;
+        gap: 30px;
+    }
+}
+
+@media (max-width: 576px) {
+
+    .header {
+        padding: 0 20px;
+    }
+
+    .list-item {
+        display: none;
+    }
+
+    ._active .list-item {
+        display: flex;
+        position: absolute;
+        flex-direction: column;
+        width: 100%;
+        top: -42px;
+        left: 0;
+        padding: 30px 0;
+        height: auto;
+    }
+
+    .items a.active::after {
+        content: none;
+    }
+
+    .menu , .close {
+        display: block;
+        cursor: pointer;
+    }
+
+    .close {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+    }
+
+    .menu img {
+        width: 38px;
+    }
+
+    .close img {
+        width: 30px;
+    }    
+
+    ._active .menu img {
+        display: none;
+    }
+
+    .close img {
+        display: none;
+    }
+
+    ._active .close img {
+        display: block;
+    } 
+};
+
